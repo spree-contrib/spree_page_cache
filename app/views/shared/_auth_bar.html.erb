@@ -1,0 +1,13 @@
+<li class='account' style='display:none;'>
+  <a href='/account'><%=t('my_account')%></a>
+</li>
+
+<li class='logout' style='display:none;'>
+  <a href='/user/logout'><%=t('logout')%></a>
+</li>
+
+<li class='login' style='display:none;'>
+  <a href='/login'><%=t('log_in')%></a>
+</li>
+
+<%= javascript_include_tag 'from_cookie', 'jquery.cookie', 'flash', 'page_caching_bar' %>

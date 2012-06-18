@@ -1,15 +1,3 @@
-Deface::Override.new(:virtual_path => "shared/_nav_bar",
-                     :name => "auth_shared_login_bar",
-                     :replace => "[data-hook='shared_login_bar'], #shared_login_bar[data-hook]",
-                     :partial => "shared/auth_bar",
-                     :disabled => false)
-
-Deface::Override.new(:virtual_path => "shared/_nav_bar",
-                     :name => "cart_shared_login_bar",
-                     :replace => "[data-hook='shared_cart_bar'], #shared_login_bar[data-hook]",
-                     :partial => "shared/cart_bar",
-                     :disabled => false)
-
 Spree::BaseController.class_eval do
 
   after_filter :write_flash_to_cookie
@@ -36,5 +24,4 @@ Spree::BaseController.class_eval do
     cookies[:authenticity_token] = session[:_csrf_token] ||= ActiveSupport::SecureRandom.base64(32)
     cookies[:current_user_id] = current_user.try(:id)
   end
-
 end

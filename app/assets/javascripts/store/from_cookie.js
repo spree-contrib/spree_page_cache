@@ -6,18 +6,18 @@ App.fromCookie =  {
 		return (input - 0) == input && input.length > 0;
 	},
 
-	udpateDom: function(){
+	updateDom: function(){
 		var	currentUserId = $.cookie('current_user_id'),
-			cartAmount = $.cookie('cart_amount');
+			cartAmount = decodeURIComponent($.cookie('cart_amount'));
 
-		if(isNumeric(currentUserId)){
+		if(this.isNumeric(currentUserId)){
 			$('#nav-bar li.logout').show();
 			$('#nav-bar li.account').show();
 		} else {
 			$('#nav-bar li.login').show();
 		}
 
-		$('#nav-bar li.cart-indicator').html(cartAmount).show();
+		$('#link-to-cart').html(cartAmount).show();
 	}
 };
 

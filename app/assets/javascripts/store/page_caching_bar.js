@@ -2,7 +2,7 @@ var App = App || {};
 
 App.updateCartAmount = function(value) {
 	if (value) {
-		$('#nav-bar li.cart-indicator').html(value);
+		$('#link-to-cart').html(value);
 	}
 };
 
@@ -12,7 +12,7 @@ $(function(){
 		url: '/page_caching_info',
 		dataType: 'json',
 		success: function(data){
-			App.updateCartAmount(data.cart_amount);
+			App.updateCartAmount(decodeURIComponent(data.cart_amount));
 		}
 	});
 

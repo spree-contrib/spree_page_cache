@@ -21,7 +21,7 @@ Spree::BaseController.class_eval do
 
   def set_customizer_cookies
     # store cookie values so they are always there
-    cookies[:authenticity_token] = session[:_csrf_token] ||= ActiveSupport::SecureRandom.base64(32)
+    cookies[:authenticity_token] = session[:_csrf_token] ||= SecureRandom.base64(32)
     cookies[:current_user_id] = current_user.try(:id)
   end
 end

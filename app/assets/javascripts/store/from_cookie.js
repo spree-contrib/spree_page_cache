@@ -1,16 +1,16 @@
 var App = App || {};
 
-App.fromCookie =  {
-
-	isNumeric: function(input) {
+App.isNumeric = function(input) {
 		return (input - 0) == input && input.length > 0;
-	},
+};
+
+App.fromCookie =  {
 
 	updateDom: function(){
 		var	currentUserId = $.cookie('current_user_id'),
 			cartAmount = decodeURIComponent($.cookie('cart_amount'));
 
-		if(this.isNumeric(currentUserId)){
+		if(App.isNumeric(currentUserId)){
 			$('#nav-bar li.logout').show();
 			$('#nav-bar li.account').show();
 		} else {

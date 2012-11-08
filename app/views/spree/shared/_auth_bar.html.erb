@@ -1,13 +1,13 @@
 <li class='account' style='display:none;'>
-  <a href='/account'><%=t('my_account')%></a>
+  <%= link_to t('my_account'), spree.account_path %>
 </li>
 
 <li class='logout' style='display:none;'>
-  <a href='/user/logout'><%=t('logout')%></a>
+  <%= link_to t('logout'), spree.destroy_user_session_path %>
 </li>
 
 <li class='login' style='display:none;'>
-  <a href='/login'><%=t('log_in')%></a>
+  <%= link_to t('log_in'), spree.login_path %>
 </li>
 
 <%= javascript_include_tag 'store/spree_page_cache' %>

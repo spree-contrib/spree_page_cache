@@ -4,16 +4,16 @@ $(function() {
 
   if(flash){
     if(flash.notice){
-	  $('div.flash.notice').html(flash.notice.replace(/\+/g," ")).show();
+      $('div.flash.notice').html(flash.notice.replace(/\+/g," ")).show();
     }
 
     if(flash.error){
-      $('div.flash.errors').html(flash.error.replace(/\+/g," ")).show();
+      $('div.flash.error').html(flash.error.replace(/\+/g," ")).show();
     }
 
-	$.cookie('flash', '{}', { path: '/' });
-	$.cookie('flash', '{}');
-	$.cookie('flash', null);
+    $.cookie('flash', '{}', { path: '/' });
+    $.cookie('flash', '{}');
+    $.cookie('flash', null);
   }
 });
 

@@ -18,6 +18,9 @@ App.fromCookie =  {
     }
 
     $('#link-to-cart').html(cartAmount).show();
+
+    $('meta[name="csrf-token"]').attr('content', $.cookie('authenticity_token'));
+    $("input[name='authenticity_token']").val($.cookie('authenticity_token'));
   }
 };
 

@@ -18,6 +18,17 @@ App.updateAccountStatusBar = function(value) {
   }
 };
 
+App.updateAuthToken = function(value) {
+  $('meta[name="csrf-token"]').attr('content', value);
+  $("input[name='authenticity_token']").val(value);
+};
+
+App.customMethod = function(data){
+  //does nothing, just an easy method for an app
+  //to replace with some custom logice to happen
+  //when the page caching info repsonse arrives
+};
+
 $(function(){
 
   $.ajax({
@@ -25,7 +36,9 @@ $(function(){
     dataType: 'json',
     success: function(data){
       App.updateCartAmount(decodeURIComponent(data.cart_amount));
-      App.updateAccountStatusBar(decodeURIComponent(data.current_user_id));
+      App.updateAccountStatusBar(data.current_user_id);
+      App.updateAuthToken(data.authenticity_token);
+      App.customMethod(data);
     }
   });
 

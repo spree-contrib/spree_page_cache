@@ -23,12 +23,5 @@ Spree::BaseController.class_eval do
 
     cookies['flash'] = cookie_flash.to_json
     flash.clear
-
-    set_customizer_cookies
-  end
-
-  def set_customizer_cookies
-    # store cookie values so they are always there
-    cookies[:authenticity_token] = session[:_csrf_token] ||= SecureRandom.base64(32)
   end
 end

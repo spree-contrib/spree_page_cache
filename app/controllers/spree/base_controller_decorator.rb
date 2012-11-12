@@ -2,6 +2,8 @@ Spree::BaseController.class_eval do
 
   after_filter :write_flash_to_cookie
 
+  private
+
   def write_flash_to_cookie
     # add to existing flash, as redirected responsed
     # cause this method to get called repeatedly before

@@ -19,6 +19,7 @@ App.updateAccountStatusBar = function(value) {
 };
 
 App.updateAuthToken = function(value) {
+  $.cookie('authenticity_token', value);
   $('meta[name="csrf-token"]').attr('content', value);
   $("input[name='authenticity_token']").val(value);
 };
@@ -29,18 +30,29 @@ App.customMethod = function(data){
   //when the page caching info repsonse arrives
 };
 
-$(function(){
+App.pageCached = function(){
+  //replacable method that controls if page_caching_info
+  //ajax request is executed or not. 
+  return true;
+}
 
-  $.ajax({
-    url: '/page_caching_info',
-    dataType: 'json',
-    success: function(data){
-      App.updateCartAmount(decodeURIComponent(data.cart_amount));
-      App.updateAccountStatusBar(data.current_user_id);
-      App.updateAuthToken(data.authenticity_token);
-      App.customMethod(data);
-    }
-  });
+$(function(){
+  if($.cookie('authenticity_token')!=null){
+    App.updateAuthToken($.cookie('authenticity_token'));
+  }
+
+  if(App.pageCached()){
+    $.ajax({
+      url: '/page_caching_info',
+      dataType: 'json',
+      success: function(data){
+        App.updateCartAmount(decodeURIComponent(data.cart_amount));
+        App.updateAccountStatusBar(data.current_user_id);
+        App.updateAuthToken(data.authenticity_token);
+        App.customMethod(data);
+      }
+    });
+  }
 
 });
 

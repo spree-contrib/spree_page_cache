@@ -19,7 +19,7 @@ App.updateAccountStatusBar = function(value) {
 };
 
 App.updateAuthToken = function(value) {
-  $.cookie('authenticity_token', value);
+  $.cookie('authenticity_token', value, { path: '/' });
   $('meta[name="csrf-token"]').attr('content', value);
   $("input[name='authenticity_token']").val(value);
 };

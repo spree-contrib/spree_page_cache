@@ -43,10 +43,10 @@ $(function(){
 
   if(App.pageCached()){
     $.ajax({
-      url: '/page_caching_info',
+      url: '/page_caching_info.json',
       dataType: 'json',
       success: function(data){
-        App.updateCartAmount(decodeURIComponent(data.cart_amount));
+        App.updateCartAmount(decodeURIComponent(data.cart_summary));
         App.updateAccountStatusBar(data.current_user_id);
         App.updateAuthToken(data.authenticity_token);
         App.customMethod(data);

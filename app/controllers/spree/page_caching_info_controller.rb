@@ -1,6 +1,6 @@
 module Spree
   class PageCachingInfoController < Spree::BaseController
-    #ssl_allowed
+    ssl_allowed
 
     respond_to :json
 

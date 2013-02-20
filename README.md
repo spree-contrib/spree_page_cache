@@ -28,7 +28,7 @@ Setup
 --------------------
 Add this to your gem file Gemfile
 
-    gem "spree_page_cache"
+    gem "spree_page_cache", github: "spree/spree_page_cache"
 
     rake spree_page_cache:install
 

@@ -1,3 +1,8 @@
+## ⚠️ Deprecation notice ⚠️
+
+Since Spree 4.1 this extension is deprecated and not needed. Spree 4.1 supports full page caching out of the box
+
+
 SpreePageCache
 ===========
 
